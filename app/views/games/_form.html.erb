@@ -11,28 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :team_home %><br />
-    <%= form.select :team_home, options_for_select(Team.all.map{|s|[s.name, s.id]}) %>
-  </div>
 
-  <div>
-    <%= form.label :score_home, style: "display: block" %>
-    <%= form.number_field :score_home %>
-  </div>
-
-  <div class="field">
-    <%= form.label :team_away %><br />
-    <%= form.select :team_away, options_for_select(Team.all.map{|s|[s.name, s.id]}) %>
-  </div>
-
-  <div>
-    <%= form.label :score_away, style: "display: block" %>
-    <%= form.number_field :score_away %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  <table style="table-layout:fixed"; class="table table-striped table-bordered table-hover">
+        <td style="width:10%; vertical-align: middle"><strong> <%= form.label :Gospodarz %><%= form.select :team_home, options_for_select(Team.all.map{|s|[s.name, s.id]}) %></strong></td>
+        <td style="width:10%; vertical-align: middle"><strong> <%= form.label :Gość %><%= form.select :team_away, options_for_select(Team.all.map{|s|[s.name, s.id]}) %></td>
+        <td style="width:10%; vertical-align: middle"><%= form.label :Wynik_gospodarz, style: "display: block" %><%= form.number_field :score_home %></td>
+        <td style="width:10%; vertical-align: middle"><%= form.label :Wynik_gość, style: "display: block" %><%= form.number_field :score_away %></td> 
+        <td style="width:50%; vertical-align: middle"><button type="submit" class="btn btn-secondary">Zmień</button></td>
+  </table>
 
 <% end %>

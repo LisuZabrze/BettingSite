@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Betting Site</title>
+    <title>Typowanie NBA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   <body>
@@ -14,8 +14,7 @@
 <%= render @team %>
 
 <div>
-  <%= link_to "Edit this team", edit_team_path(@team) %> 
-  <%= link_to "Back to teams", teams_path %>
-
-  <%= button_to "Destroy this team", @team, method: :delete %>
+  <%= link_to "Edytuj zespół", edit_team_path(@team), class: "btn btn-secondary" %> 
+  <%= link_to "Powrót do listy zespołów", teams_path, class: "btn btn-secondary" %>
+  <%= button_to "Usuń zespół!", @team, class: "btn btn-danger", method: :delete %>
 </div>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Betting Site</title>
+    <title>Typowanie NBA</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
   </head>
   <body>
@@ -12,9 +12,7 @@
 </html> 
 
 <div id="<%= dom_id team %>">
-  <p>
-    <strong>Name:</strong>
-    <%= team.name %>
-  </p>
-
+  <table style="table-layout:fixed"; class="table table-striped table-bordered table-hover">
+    <td style="width:80%; vertical-align: middle"><strong>Nazwa zespołu:</strong> <%= team.name %><br><%= link_to "Wyświetl zespół", team, class: "btn btn-secondary" %></td>
+  </table>
 </div>

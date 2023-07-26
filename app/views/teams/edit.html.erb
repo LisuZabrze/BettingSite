@@ -1,10 +1,10 @@
-<h1>Editing team</h1>
+<h1>Edytuj zespół</h1>
 
 <%= render "form", team: @team %>
 
 <br>
 
 <div>
-  <%= link_to "Show this team", @team %> |
-  <%= link_to "Back to teams", teams_path %>
+  <%= link_to "Pokaż ten zespół", @team, class: "btn btn-secondary" %> 
+  <%= link_to "Powrót do listy meczy", teams_path, class: "btn btn-secondary" %>
 </div>

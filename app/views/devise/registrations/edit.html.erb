@@ -47,6 +47,6 @@
 
 <h3>Usuń konto</h3>
 
-<div>Klikając poniżej usuwasz swoje konto... <%= button_to "Usuń konto", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Jesteś pewny?", turbo_confirm: "Jesteś pewny?" }, method: :delete %></div>
+<div>Klikając poniżej usuwasz swoje konto... <%= button_to "Usuń konto", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "Jesteś pewny?", turbo_confirm: "Jesteś pewny?" }, method: :delete %>
+<%= link_to "Wróć", :back, class: "btn btn-secondary" %></div>
 
-<%= link_to "Back", :back, class: "btn btn-secondary" %>

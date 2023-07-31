@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_20_181925) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_31_192231) do
+  create_table "bets", force: :cascade do |t|
+    t.integer "bet_score_1"
+    t.integer "bet_score_2"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "games", force: :cascade do |t|
     t.integer "score_home"
     t.integer "score_away"
@@ -18,6 +25,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_181925) do
     t.datetime "updated_at", null: false
     t.integer "team_home"
     t.integer "team_away"
+    t.date "date"
+    t.time "time"
   end
 
   create_table "teams", force: :cascade do |t|
@@ -34,8 +43,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_20_181925) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["user_id"], name: "index_users_on_user_id"
   end
 
 end

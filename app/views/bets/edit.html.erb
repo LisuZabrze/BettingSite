@@ -1,0 +1,10 @@
+<h1>Editing bet</h1>
+
+<%= render "form", game: @game, bet: @bet %>
+
+<br>
+
+<div>
+  <%= link_to "Show this bet", @bet %> |
+  <%= link_to "Back to bets", game_bets_path(@game) %>
+</div>

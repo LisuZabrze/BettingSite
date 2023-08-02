@@ -1,11 +1,20 @@
 
+<% bet = Bet.find_or_initialize_by(user: current_user, game: game) %>
 <div id="<%= dom_id game %>">
   <table style="table-layout:fixed"; class="table table-striped table-bordered table-hover">
         <td style="width:10%; vertical-align: middle"><strong> <%= game.team_home ? game.team_home.name : "undefined"%></strong></td>
         <td style="width:10%; vertical-align: middle"><strong> <%= game.team_away ? game.team_away.name : "undefined"%></strong></td>
         <td style="width:3%; vertical-align: middle"><%= game.score_home %></td>
         <td style="width:3%; vertical-align: middle"><%= game.score_away %></td> 
-        <td style="vertical-align: middle"><%= link_to "Pokaż ten mecz", game, class: "btn btn-secondary" %></td>
+        <td>
+          <% if current_user %>
+            <%= form_with(model: bet, url: [game, bet]) do |form| %>
+              <%= form.radio_button :team, 0 %> <%= game.team_home ? game.team_home.name : "undefined"%>
+              <%= form.radio_button :team, 1 %> <%= game.team_away ? game.team_away.name : "undefined"%>
+              <%= form.submit "Typuj"%>
+            <% end %>
+          <% end%>
+        </td>
   </table>
 </div>
 

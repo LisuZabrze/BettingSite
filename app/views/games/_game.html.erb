@@ -9,13 +9,33 @@
         <td style="width:3%; vertical-align: middle"><%= game.date %></td> 
         <td style="width:7%"><%= link_to "Pokaż ten mecz", game, class: "btn btn-secondary" %></td>
         <td>
-          <% if current_user %>
-            <%= form_with(model: bet, url: [game, bet]) do |form| %>
-              <%= form.radio_button :team, 0 %> <%= game.team_home ? game.team_home.name : "undefined"%>
-              <%= form.radio_button :team, 1 %> <%= game.team_away ? game.team_away.name : "undefined"%>
-              <%= form.submit "Typuj"%>
-            <% end %>
-          <% end%>
+
+        <% if current_user %>
+        <%= form_with(model: bet, url: [game, bet]) do |form| %>
+          <%= form.radio_button :team, 0 %> <%= game.team_home ? game.team_home.name : "undefined"%>
+          <%= form.radio_button :team, 1 %> <%= game.team_away ? game.team_away.name : "undefined"%>
+        <% end %>
+      <% end%>
+
+      <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const forms = document.querySelectorAll("form");
+
+    forms.forEach((form) => {
+      const radioButtons = form.querySelectorAll('input[type="radio"]');
+      radioButtons.forEach((radio) => {
+        radio.addEventListener("click", function() {
+          this.form.submit();
+
+          setTimeout(function() {
+            location.reload();
+          }, 1000);
+        });
+      });
+    });
+  });
+</script>
+      
         </td>
   </table>
 </div>
